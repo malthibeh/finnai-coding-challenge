@@ -20,10 +20,13 @@ exports.post_users = async (req, res) => {
     age: req.body.age,
     email: req.body.email,
     })
-    const users = await User.find();
+   
 
     try {
         await user.save();
+
+        const users = await User.find();
+        
         res.status(200).render("index", { users })
     } catch (error) {
         res.status(204).send();
