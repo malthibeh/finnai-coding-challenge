@@ -1,31 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
+import React from 'react';
 import UserForm from './components/Forms';
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
-
-function createData(_id, name, age, email, date) {
-  return { _id, name, age, email, date };
-}
-
-
-
-var DefaultLayout = require('./layouts/default');
 
 const UserDisplay = (props) => {
   const rows = props.users;
-  const [count, setCount] = useState(0);
-  const classes = useStyles();
 
   return (
     <div>
       <UserForm/>
-      <Table striped="true" bordered="true" hover="true">
+      <table striped="true" bordered="true" hover="true">
         <thead>
           <tr>
             <th>_id</th>
@@ -50,7 +32,7 @@ const UserDisplay = (props) => {
                 ))
             }
         </tbody>
-      </Table>
+      </table>
     </div>
     
   );
