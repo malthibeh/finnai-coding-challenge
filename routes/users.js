@@ -1,36 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const UserController = require("../controllers/users");
 
-let users = [
-  {
-    id: '1',
-    name: 'Mohamed Wieruch',
-    email: "test1@gmail.com"
-  },
-  {
-    id: '2',
-    name: 'Tim Davids',
-    email: "test2@gmail.com"
-  },
-];
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-/* GET users listing. */
-router.get('/', (req, res) => {
-  res.json(users);
-});
-
-router.post('/', (req, res) => {
-
-  if(getRandomInt(2) == 0){
-    res.send('respond failed');
-  }else{
-    res.send('respond success');
-  }
-  
-});
+/* users routes. */
+router.get('/user', UserController.get_all_users);
+router.post('/user', UserController.post_users);
 
 module.exports = router;
